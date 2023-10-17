@@ -5,8 +5,7 @@
 //  Created by haijunyan on 2023/10/17.
 //
 
-#import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
 @interface StaticLibTools : NSObject
 + (void)testDemo;
 @end

@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		804D84EFDAFFE11A18362B5C /* Pods_StaticLibTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05636AAB58FF089DD999D458 /* Pods_StaticLibTools.framework */; };
+		F363CABB2ADE850200DB32F5 /* StaticLibTools.h in Headers */ = {isa = PBXBuildFile; fileRef = F3D9BA102ADE72C000A22EE6 /* StaticLibTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F3D9BA122ADE72C000A22EE6 /* StaticLibTools.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D9BA112ADE72C000A22EE6 /* StaticLibTools.m */; };
 		F3D9BA132ADE72C000A22EE6 /* StaticLibTools.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F3D9BA102ADE72C000A22EE6 /* StaticLibTools.h */; };
+		F3D9BA1A2ADE7D6B00A22EE6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3D9BA192ADE7D6B00A22EE6 /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,6 +34,7 @@
 		F3D9BA0D2ADE72C000A22EE6 /* libStaticLibTools.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libStaticLibTools.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3D9BA102ADE72C000A22EE6 /* StaticLibTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaticLibTools.h; sourceTree = "<group>"; };
 		F3D9BA112ADE72C000A22EE6 /* StaticLibTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaticLibTools.m; sourceTree = "<group>"; };
+		F3D9BA192ADE7D6B00A22EE6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/iOSSupport/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3D9BA1A2ADE7D6B00A22EE6 /* UIKit.framework in Frameworks */,
 				804D84EFDAFFE11A18362B5C /* Pods_StaticLibTools.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -49,6 +53,7 @@
 		2C51FEE07DBD4DF4573D4D77 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F3D9BA192ADE7D6B00A22EE6 /* UIKit.framework */,
 				05636AAB58FF089DD999D458 /* Pods_StaticLibTools.framework */,
 			);
 			name = Frameworks;
@@ -60,7 +65,6 @@
 				79B91C2C3AEE849A6F80CB90 /* Pods-StaticLibTools.debug.xcconfig */,
 				5233E3FB54B1AA8D18606D7D /* Pods-StaticLibTools.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -93,12 +97,24 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		F363CABA2ADE841A00DB32F5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F363CABB2ADE850200DB32F5 /* StaticLibTools.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		F3D9BA0C2ADE72C000A22EE6 /* StaticLibTools */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F3D9BA162ADE72C000A22EE6 /* Build configuration list for PBXNativeTarget "StaticLibTools" */;
 			buildPhases = (
 				780BAE46D6311FD04BD0CA26 /* [CP] Check Pods Manifest.lock */,
+				F363CABA2ADE841A00DB32F5 /* Headers */,
 				F3D9BA092ADE72C000A22EE6 /* Sources */,
 				F3D9BA0A2ADE72C000A22EE6 /* Frameworks */,
 				F3D9BA0B2ADE72C000A22EE6 /* CopyFiles */,
@@ -298,10 +314,13 @@
 			baseConfigurationReference = 79B91C2C3AEE849A6F80CB90 /* Pods-StaticLibTools.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = NCL9H5966U;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "include/$(PROJECT_NAME)/$(PROJECT_NAME)";
 				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -311,10 +330,13 @@
 			baseConfigurationReference = 5233E3FB54B1AA8D18606D7D /* Pods-StaticLibTools.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = NCL9H5966U;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "include/$(PROJECT_NAME)/$(PROJECT_NAME)";
 				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
